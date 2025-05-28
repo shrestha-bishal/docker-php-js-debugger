@@ -1,0 +1,19 @@
+#PHP image that comes with Apache installed and configured. This gives us a ready-to-use web server with PHP support.
+FROM php:8.3-apache
+
+# Working directory, which is the default web root directory for Apache in this image. (all subsequent commands run relative to this folder)
+WORKDIR /var/www/html
+
+# Enable Xdebug using the PECL installer
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# Copy the application source code from your local src folder into the container’s /var/www/html directory, so Apache can serve it.
+COPY ./src/ /var/www/html/
+
+# Copy the custom apache and xdebug config files to the cotainer
+COPY ./config/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./config/xdebug/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+# Optional: Expose port (usually handled by Docker automatically)
+EXPOSE 80
