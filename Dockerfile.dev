@@ -8,7 +8,7 @@ WORKDIR /var/www/html
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-# Copy the application source code from your local src folder into the container’s /var/www/html directory, so Apache can serve it.
+# Copy the application source code from your local public folder into the container’s /var/www/html directory, so Apache can serve it.
 COPY ./public/ /var/www/html/
 COPY ./src/ /var/www/src/
 
