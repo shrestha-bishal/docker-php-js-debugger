@@ -9,7 +9,8 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
 # Copy the application source code from your local src folder into the container’s /var/www/html directory, so Apache can serve it.
-COPY ./src/ /var/www/html/
+COPY ./public/ /var/www/html/
+COPY ./src/ /var/www/src/
 
 # Copy the custom apache and xdebug config files to the cotainer
 COPY ./config/apache/000-default.conf /etc/apache2/sites-available/000-default.conf

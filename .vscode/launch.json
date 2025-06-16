@@ -5,12 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach to Chrome (npm run dev)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8086",
+            "webRoot": "${workspaceFolder}/public"
+        },
+        {
             "name": "Listen for Xdebug",
             "type": "php",
             "request": "launch",
             "port": 9003,
             "pathMappings": {
-                "/var/www/html": "${workspaceFolder}/src"
+                "/var/www/html": "${workspaceFolder}/public",
+                "/var/www/src": "${workspaceFolder}/src"
             }
         },
         {
@@ -46,6 +54,15 @@
                 "uriFormat": "http://localhost:%s",
                 "action": "openExternally"
             }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Debug JS and PHP",
+            "configurations": [
+                "Attach to Chrome (npm run dev)",
+                "Listen for Xdebug"
+            ]
         }
     ]
 }

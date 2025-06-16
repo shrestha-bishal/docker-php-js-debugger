@@ -6,5 +6,6 @@ services:
     ports:
       - 8086:80 #Maps port 8086 on your host machine to port 80 inside the container.
     volumes:
-      - "./src/:/var/www/html" #Mounts the host folder ./src/ (relative to your docker-compose.yml file) into /var/www/html inside the container. This allows you to edit code on your host machine and have the changes immediately reflected 
+      - "./public/:/var/www/html"  # Mounts public files (web root)#Mounts the host folder ./public/ (relative to your docker-compose.yml file) into /var/www/html inside the container. This allows you to edit code on your host machine and have the changes immediately reflected 
+      - "./src/:/var/www/src"      # Mounts backend code (not exposed)
 #inside the container without rebuilding.
