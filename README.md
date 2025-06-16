@@ -1,4 +1,4 @@
-# dockerized-php-js-debuggger
+# docker-php-js-debuggger
 
 A minimal and configurable Docker-based setup for developing and debugging PHP and frontend JavaScript applications.  
 Includes `PHP`, `Apache`, `Xdebug`, `launch.json`, `Docker Compose`, and `Dockerfile` with full IDE integration support (tested with Visual Studio Code).
